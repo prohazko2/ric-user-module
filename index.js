@@ -5,9 +5,9 @@ module.exports = {
   init: (app, users, data) => {
     const { server } = app.interfaces;
 
-    const store = data.ensure(require('./items.datarc'));
+    const store = data.ensure(require('./examples.datarc'));
 
-    server.get('/items/hello/:name?', users.get(async ctx => {
+    server.get('/examples/hello/:name?', users.get(async ctx => {
       return {
         now: new Date()
       };

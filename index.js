@@ -5,7 +5,7 @@ module.exports = {
   init: (app, users, data) => {
     const { server } = app.interfaces;
 
-    const store = data.ensure(require('./examples.datarc'));
+    const store = data.ensure(require('./datarc.examples'));
 
     server.get('/examples/hello/:name?', users.get(async ctx => {
       return {

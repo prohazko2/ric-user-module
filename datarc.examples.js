@@ -9,8 +9,13 @@ const validate = {
   value: ['required']
 };
 
+const defaults = {
+  value: 1
+};
+
 module.exports = {
-  name: 'items',
+  name: 'examples',
   fields,
-  validate
+  validate,
+  defaults
 };

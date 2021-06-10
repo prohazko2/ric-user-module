@@ -15,7 +15,7 @@ Basic user module for [Rightech IoT](https://rightech.io/) platform.
 
 ### Install
 
-```
+```sh
 > cd ric-web
 > git clone https://github.com/prohazko2/ric-user-module user_modules/examples
 

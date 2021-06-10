@@ -12,3 +12,13 @@ Basic user module for [Rightech IoT](https://rightech.io/) platform.
     ├── index.ts        # Client module entrypoint
     └── form.tsx        # Example edit form
 ```
+
+### Install
+
+```
+> cd ric-web
+> git clone https://github.com/prohazko2/ric-user-module user_modules/examples
+
+> npm run build:user
+> npm start
+```

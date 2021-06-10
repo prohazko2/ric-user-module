@@ -4,14 +4,17 @@ import datarc from '../datarc.examples';
 import icon from '../assets/icon.svg';
 
 import EditForm from './form';
+import Workspace from './workspace';
 
 export default class ExamplesModule extends Module {
   icon = icon;
   datarc = datarc;
 
-  emptyViewport = viewport.placeholderFor(this);
-  viewportRenderer = viewport.empty();
+  autoItemSelect = true;
+  hasStyles = true;
 
+  emptyViewport = viewport.placeholderFor(this);
+  viewportRenderer = Workspace;
   editForm = EditForm;
 
   constructor(shell: Shell, name: string) {

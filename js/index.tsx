@@ -8,15 +8,16 @@ import icon from "../assets/icon.svg";
 
 import EditForm from "./edit";
 
-import MainView from "./views/main";
-//import EventsView from './views/events';
+import MainView from "../10-main";
+import TopView from "../20-top";
+import GrpcView from "../30-grpc";
 
 export default class ExamplesModule extends Module {
   icon = icon;
 
   editForm = EditForm;
-  autoItemSelect = true;
   emptyViewport = viewport.placeholderFor(this);
+  autoItemSelect = true;
 
   constructor(shell: Shell, name: string) {
     super(shell, name);
@@ -34,6 +35,8 @@ export default class ExamplesModule extends Module {
   async mount() {
     super.mount();
 
-    this.addExampleApp("main", <MainView module={this} />);
+    this.addExampleApp("10-main", <MainView module={this} />);
+    this.addExampleApp("20-top ", <TopView module={this} />);
+    this.addExampleApp("30-grpc", <GrpcView module={this} />);
   }
 }

@@ -1,3 +1,7 @@
 .viewport {
   composes: ric-absolute from global;
 }
+
+.card {
+  background-color: grey;
+}

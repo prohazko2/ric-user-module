@@ -1,21 +1,24 @@
 const fields = {
   name: String,
+  kind: String,
   value: Number,
-  description: String
-};
-
-const validate = {
-  name: ['required'],
-  value: ['required']
-};
-
-const defaults = {
-  value: 1
+  object: "ObjectId",
+  description: String,
+  layout: Object,
 };
 
 module.exports = {
-  name: 'examples',
+  name: "examples",
   fields,
-  validate,
-  defaults
+  validate: {
+    name: ["required"],
+    value: ["required"],
+  },
+  refs: {
+    object: "objects",
+  },
+  defaults: {
+    kind: "foo",
+    value: 42,
+  },
 };

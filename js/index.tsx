@@ -1,24 +1,23 @@
-import React from 'react';
-import ReactDom from 'react-dom';
+import React from "react";
+import ReactDom from "react-dom";
 
-import { Shell, Module, viewport } from 'common';
+import { Shell, Module, viewport } from "common";
 
-import '../assets/styles.less';
+import "../assets/styles.global.css";
 
-import datarc from '../datarc.examples';
-import icon from '../assets/icon.svg';
+import datarc from "../datarc.examples";
+import icon from "../assets/icon.svg";
 
-import EditForm from './edit';
+import EditForm from "./edit";
 
-import MainView from './views/main';
-import EventsView from './views/events';
+import MainView from "./views/main";
+//import EventsView from './views/events';
 
 export default class ExamplesModule extends Module {
   icon = icon;
   datarc = datarc;
 
   autoItemSelect = true;
-  hasStyles = true;
 
   emptyViewport = viewport.placeholderFor(this);
   viewportRenderer = MainView;
@@ -28,8 +27,8 @@ export default class ExamplesModule extends Module {
     super(shell, name);
 
     this.viewConfig.pages = false;
-    this.viewConfig.stylesVersion = 'v3';
-    this.viewConfig.gridVersion = 'v3';
+    this.viewConfig.stylesVersion = "v3";
+    this.viewConfig.gridVersion = "v3";
   }
 
   async mount() {

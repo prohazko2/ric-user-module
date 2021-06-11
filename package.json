@@ -1,0 +1,19 @@
+{
+  "name": "ric-user-module",
+  "version": "1.0.0",
+  "description": "Basic user module for [Rightech IoT](https://rightech.io/) platform.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prohazko2/ric-user-module.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prohazko2/ric-user-module/issues"
+  },
+  "homepage": "https://github.com/prohazko2/ric-user-module#readme"
+}

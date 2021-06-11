@@ -4,8 +4,6 @@ import ReactDom from "react-dom";
 import { Shell, Module, viewport } from "common";
 
 import "../assets/styles.global.css";
-
-import datarc from "../datarc.examples";
 import icon from "../assets/icon.svg";
 
 import EditForm from "./edit";
@@ -15,13 +13,10 @@ import MainView from "./views/main";
 
 export default class ExamplesModule extends Module {
   icon = icon;
-  datarc = datarc;
 
-  autoItemSelect = true;
-
-  emptyViewport = viewport.placeholderFor(this);
-  viewportRenderer = MainView;
   editForm = EditForm;
+  autoItemSelect = true;
+  emptyViewport = viewport.placeholderFor(this);
 
   constructor(shell: Shell, name: string) {
     super(shell, name);
@@ -31,10 +26,14 @@ export default class ExamplesModule extends Module {
     this.viewConfig.gridVersion = "v3";
   }
 
+  addExampleApp(name: string, component: any) {
+    const view = this.view.addEmptyViewport(name);
+    return ReactDom.render(component, view.getNode());
+  }
+
   async mount() {
     super.mount();
 
-    const x0 = this.view.addEmptyViewport('events');
-    const x1 = ReactDom.render(<EventsView module={this} />, x0.getNode());
+    this.addExampleApp("main", <MainView module={this} />);
   }
 }

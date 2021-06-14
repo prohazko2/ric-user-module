@@ -21,3 +21,11 @@ Basic user module for [Rightech IoT](https://rightech.io/) platform.
 > npm run build:user
 > npm start
 ```
+
+or with [docker](https://github.com/prohazko2/ric-build-root)
+
+#### [10-main](./10-main/index.tsx)
+
+- use custom [`react-grid-layout`](https://github.com/react-grid-layout/react-grid-layout) library
+- use `module.save` API to persist layout changes (`PATCH /examples/:id`)
+- listen module events (`select` and `staged`)

@@ -1,3 +1,12 @@
 .card {
   background-color: var(--ice-blue);
 }
+
+.card .close {
+  float: right;
+  display: none;
+}
+
+.card:hover .close {
+  display: inline;
+}

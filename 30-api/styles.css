@@ -1,0 +1,27 @@
+.viewport {
+  composes: ric-absolute from global;
+
+  display: grid;
+  grid-template-columns: 1fr 130px;
+  grid-template-rows: 37px 1fr;
+  height: 100%;
+  width: 440px;
+  grid-gap: 10px;
+  margin: 10px;
+}
+
+.viewport input {
+  height: 100%;
+}
+
+.logs {
+  composes: ric-mono from global;
+  overflow: auto;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.line {
+  display: grid;
+  grid-template-columns: 15px 70px 1fr;
+}

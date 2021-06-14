@@ -28,7 +28,7 @@ export default class extends React.Component<{ module: ExamplesModule }> {
 
   onItemSelect(item) {
     let layout = defaultLayout();
-    if (item.layout && item.layout.length) {
+    if (item?.layout?.length) {
       layout = item.layout;
     }
     this.setState({ selected: item, layout });
@@ -36,9 +36,13 @@ export default class extends React.Component<{ module: ExamplesModule }> {
 
   async onLayoutChange(layout) {
     const item = this.state.selected;
+    if (item?._fresh) {
+      return;
+    }
     if (item) {
       this.props.module.save(item, { layout });
     }
+    this.setState({ layout });
   }
 
   createElement(el) {
@@ -46,12 +50,35 @@ export default class extends React.Component<{ module: ExamplesModule }> {
     return (
       <div key={i} className={styles.card}>
         <span>{i}</span>
+        <Button className={styles.close} onClick={() => this.removeItem(el)}>
+          <Icon name="closethin" />
+        </Button>
       </div>
     );
   }
 
   addItem() {
-    console.log("addItem");
+    let maxId = Math.max(...this.state.layout.map((x) => parseInt(x.i)));
+    if (!isFinite(maxId)) {
+      maxId = 0;
+    }
+    const layout = [
+      ...this.state.layout,
+      {
+        i: (maxId + 1).toString(),
+        x: this.state.layout.length % 10,
+        y: Infinity,
+        w: 1,
+        h: 1,
+      },
+    ];
+    this.setState({ layout });
+  }
+
+  removeItem(el) {
+    this.setState({
+      layout: [...this.state.layout.filter((x) => x.i !== el.i)],
+    });
   }
 
   render() {
@@ -60,12 +87,10 @@ export default class extends React.Component<{ module: ExamplesModule }> {
         <Toolbar>
           <Button
             onClick={this.addItem}
-            // disabled={loading}
             icon={<Icon name="add" />}
             labelText={i18n.msg("item")}
             title={`${i18n.msg("item")}`}
           />
-          {/* {loading && <Spinner text={statusText} />} */}
         </Toolbar>
         <GridLayout
           layout={this.state.layout}

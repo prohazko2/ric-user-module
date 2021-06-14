@@ -24,6 +24,16 @@ Basic user module for [Rightech IoT](https://rightech.io/) platform.
 
 or with [docker](https://github.com/prohazko2/ric-build-root)
 
+![server routes](./assets/paths.png)
+
+- [`GET /examples`](http://localhost:3000/api/v1/examples) - query all items
+  - [`GET /examples?only=name`](http://localhost:3000/api/v1/examples?only=name) - query items
+  - [`GET /examples?unwrap=object`](http://localhost:3000/api/v1/examples?unwind=object) - unref referenced object by `object` field
+- `POST /examples` - create new item
+- `PATCH /examples/:id` - update any item
+- `DELETE /examples/:id` - delete any item
+
+
 #### [10-main](./10-main/index.tsx)
 
 - use 3rd-party [`react-grid-layout`](https://github.com/react-grid-layout/react-grid-layout) library as example
@@ -43,10 +53,3 @@ or with [docker](https://github.com/prohazko2/ric-build-root)
 - inject custom [page](./40-inject/page.tsx) to `objects` module
 - inject custom [view](./40-inject/view.js) to `objects` module (also no `react` or `ts`)
 
-![server routes](./assets/paths.png)
-
-
-- `GET /examples`
-- `POST /examples` - create new item
-- `PATCH /examples/:id` - update any item
-- `DELETE /examples/:id` - delete any item

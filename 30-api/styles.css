@@ -13,6 +13,23 @@
   height: 100%;
 }
 
+.input {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+}
+
+.path {
+  composes: ric-mono from global;
+  font-size: 12px;
+  align-self: center;
+}
+
+.path .verb {
+  font-weight: bold;
+  margin-right: 7px;
+  color: var(--light-olive-green);
+}
+
 .logs {
   composes: ric-mono from global;
   composes: ric-can-text-select from global;
@@ -26,5 +43,5 @@
 
 .line {
   display: grid;
-  grid-template-columns: 15px 70px 1fr;
+  grid-template-columns: 20px 55px 1fr;
 }

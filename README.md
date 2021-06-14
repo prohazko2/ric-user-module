@@ -24,10 +24,13 @@ Basic user module for [Rightech IoT](https://rightech.io/) platform.
 
 or with [docker](https://github.com/prohazko2/ric-build-root)
 
+#### [server](./index.js)
+
 ![server routes](./assets/paths.png)
 
 - [`GET /examples`](http://localhost:3000/api/v1/examples) - query all items
-  - [`GET /examples?only=name`](http://localhost:3000/api/v1/examples?only=name) - query items
+  - [`GET /examples?only=name`](http://localhost:3000/api/v1/examples?only=name) - query items with only `name` field
+  - [`GET /examples?where.value>=20`](http://localhost:3000/api/v1/examples?where.value>=20) - query items where `value` field more than 20
   - [`GET /examples?unwrap=object`](http://localhost:3000/api/v1/examples?unwind=object) - unref referenced object by `object` field
 - `POST /examples` - create new item
 - `PATCH /examples/:id` - update any item

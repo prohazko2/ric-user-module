@@ -11,7 +11,7 @@ module.exports = {
     const store = data.ensure(require("./datarc.examples"));
     const client = grpc.getClient("ric-echo");
 
-    /* 01. store value hook */
+    /* 01. value hook */
     store.guard("yaml", async (value, operation) => {
       if (!value) {
         return;
@@ -22,14 +22,14 @@ module.exports = {
       operation.data.props = yaml.parse(value)
     });
 
-    /* 02. store event hook */
+    /* 02. event hook */
     store.listen("before-remove").local(async ({ item }) => {
       if (item.name === "oleg") {
         throw new Error("unacceptable");
       }
     });
 
-    /* 03. custom route */
+    /* 03. custom api route */
     server.get("/examples/hello/:name?", users.get(async (ctx) => {
       const name = ctx.params.name || "world";
       if (name === "oleg") {
@@ -50,13 +50,14 @@ module.exports = {
       };
     }));
 
-    /* 04. static page route */
+    /* 04. custom page route */
     server.get("/examples/page/:name?", users.get(async (ctx) => {
       const tpl = `${__dirname}/templates/server-page.jade`;
       const name = ctx.params.name || "world";
       ctx.renderTo(tpl, { name });
     }));
 
+    /* 05. default store api */
     store.exportApiTo(users);
 
     return { store };

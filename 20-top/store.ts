@@ -1,4 +1,4 @@
-import { safe, format, user, since } from "util";
+import { safe } from "util";
 import { makeAutoObservable } from "mobx";
 
 export type CounterStat = {
@@ -23,13 +23,6 @@ export class Counter {
   get top20() {
     return Object.values(this.stats)
       .sort((a, b) => b.total - a.total)
-      .map((row) => ({
-        ...row,
-        last: `${format.dateTime(row.last)}: ${since(
-          row.last,
-          user.langShort
-        )}`,
-      }))
       .slice(0, 20);
   }
 

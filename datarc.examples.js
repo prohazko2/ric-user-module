@@ -5,6 +5,8 @@ const fields = {
   object: "ObjectId",
   description: String,
   layout: Object,
+  yaml: String,
+  props: Object
 };
 
 module.exports = {

@@ -2,6 +2,7 @@ import React from "react";
 import ReactDom from "react-dom";
 
 import { Shell, Module, viewport } from "common";
+import { safe } from "util";
 
 import "../assets/styles.global.css";
 import icon from "../assets/icon.svg";
@@ -11,6 +12,9 @@ import EditForm from "./edit";
 import MainView from "../10-main";
 import TopView from "../20-top";
 import ApiView from "../30-api";
+
+import InjectPage from "../40-inject/page";
+import InjectView from "../40-inject/view";
 
 export default class ExamplesModule extends Module {
   icon = icon;
@@ -38,5 +42,15 @@ export default class ExamplesModule extends Module {
     this.addExampleApp("10-main", <MainView module={this} />);
     this.addExampleApp("20-top ", <TopView module={this} />);
     this.addExampleApp("30-api ", <ApiView />);
+
+    /* 40-inject */
+    const objects = await safe.awaitOf("objects");
+    if (objects) {
+      objects.addService("ric-action", InjectPage);
+      objects.view.addViewport(new InjectView(this));
+    }
+
+    /* select 10-main as default viewport */
+    this.viewport = this.view.viewports.find(({ name }) => name === "10-main");
   }
 }

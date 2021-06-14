@@ -1,0 +1,13 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    meta(name="ric-csrf-token" content="#{csrfToken}")
+    meta(name="ric-user-locale" content="#{user.locale}")
+
+    title Example - hello
+    
+  body
+    div hello #{name}

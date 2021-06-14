@@ -29,7 +29,7 @@ export default class extends React.Component {
   state = {
     sending: false,
     name: user?.session?.name ?? "username",
-    logs: [] as LogLine[],
+    logs: [] as LogLine[]
   };
 
   onKeyDown(event) {
@@ -47,24 +47,26 @@ export default class extends React.Component {
   }
 
   async onSend() {
-    const { name, logs } = this.state;
+    const { name, logs, sending } = this.state;
+    if (sending) {
+      return;
+    }
     this.setState({ sending: true });
 
+    let line: LogLine = null;
+
     try {
-      const { text } = await api.get(`examples/hello/${name}`);
-      this.setState({
-        sending: false,
-        logs: [...logs, this.lineFromResp(text)],
-        name: "",
-      });
+      const resp = await api.get(`examples/hello/${name}`);
+      line = this.lineFromResp(JSON.stringify(resp));
     } catch (err) {
       err._handled = true;
-      const line = { ...this.lineFromResp(err.message), ok: false };
-      this.setState({
-        sending: false,
-        logs: [...logs, line],
-      });
+      line = { ...this.lineFromResp(JSON.stringify(err)), ok: false };
     }
+
+    this.setState({
+      sending: false,
+      logs: [...logs, line]
+    });
   }
 
   render() {
@@ -88,6 +90,8 @@ export default class extends React.Component {
         )}
 
         <div className={styles.logs}>
+          {!logs.length && <div>Press "Send" to API call</div>}
+
           {logs.map((line) => (
             <LogLine {...line} />
           ))}

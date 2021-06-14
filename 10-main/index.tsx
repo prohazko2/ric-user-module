@@ -2,7 +2,7 @@ import React from "react";
 
 import GridLayout from "react-grid-layout";
 
-import { i18n, autobind, store } from "util";
+import { i18n, autobind, only } from "util";
 import { Form, Field, Icon, Toolbar, Button, Spinner } from "ui";
 
 import type ExamplesModule from "../js/index";
@@ -39,6 +39,9 @@ export default class extends React.Component<{ module: ExamplesModule }> {
     if (item?._fresh) {
       return;
     }
+    
+    layout = (layout || []).map((item) => only(item, Object.keys(defaultLayout()[0])));
+
     if (item) {
       this.props.module.save(item, { layout });
     }

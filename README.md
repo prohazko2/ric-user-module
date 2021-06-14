@@ -28,6 +28,11 @@ or with [docker](https://github.com/prohazko2/ric-build-root)
 
 ![server routes](./assets/paths.png)
 
+##### custom
+- [`GET /examples/hello/:name`](http://localhost:3000/api/v1/examples/hello/test) - custom api route
+- [`GET /examples/page/:name`](http://localhost:3000/api/v1/examples/page/test) - custom html page
+
+##### default
 - [`GET /examples`](http://localhost:3000/api/v1/examples) - query all items
   - [`GET /examples?only=name`](http://localhost:3000/api/v1/examples?only=name) - query items with only `name` field
   - [`GET /examples?where.value>=20`](http://localhost:3000/api/v1/examples?where.value>=20) - query items where `value` field more than 20

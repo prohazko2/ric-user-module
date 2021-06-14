@@ -43,3 +43,10 @@ or with [docker](https://github.com/prohazko2/ric-build-root)
 - inject custom [page](./40-inject/page.tsx) to `objects` module
 - inject custom [view](./40-inject/view.js) to `objects` module (also no `react` or `ts`)
 
+![server routes](./assets/paths.png)
+
+
+- `GET /examples`
+- `POST /examples` - create new item
+- `PATCH /examples/:id` - update any item
+- `DELETE /examples/:id` - delete any item

@@ -34,4 +34,4 @@ or with [docker](https://github.com/prohazko2/ric-build-root)
 
 - use bundled [`mobx`](https://github.com/mobxjs/mobx) library for state managment
 - listen `WebSocket` events (`object-packet`)
-- use base module for navigation and formatting (`objects`)
+- use `objects` base module for navigation and formatting

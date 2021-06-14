@@ -26,7 +26,7 @@ or with [docker](https://github.com/prohazko2/ric-build-root)
 
 #### [10-main](./10-main/index.tsx)
 
-- use custom [`react-grid-layout`](https://github.com/react-grid-layout/react-grid-layout) library
+- use 3rd-party [`react-grid-layout`](https://github.com/react-grid-layout/react-grid-layout) library as example
 - use `module.save` API to persist layout changes (`PATCH /examples/:id`)
 - listen module events (`select` and `staged`)
 
@@ -35,3 +35,11 @@ or with [docker](https://github.com/prohazko2/ric-build-root)
 - use bundled [`mobx`](https://github.com/mobxjs/mobx) library for state managment
 - listen `WebSocket` events (`object-packet`)
 - use `objects` base module for navigation and formatting
+
+#### [30-api](./30-api/index.tsx)
+- call custom API method `GET /examples/hello/:name?`
+
+#### [40-inject](./40-inject/)
+- inject custom [page](./40-inject/page.tsx) to `objects` module
+- inject custom [view](./40-inject/view.js) to `objects` module (also no `react` or `ts`)
+

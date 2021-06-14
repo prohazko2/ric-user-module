@@ -5,12 +5,11 @@ Basic user module for [Rightech IoT](https://rightech.io/) platform.
 
 ```
 .
-├── index.js            # Server module entrypoint
-├── datarc.examples.js  # Example data store manifest
-├── assets              # Client resources - icons, styles, etc
-├── js                  # Client JavaScript/TypeScript
-    ├── index.ts        # Client module entrypoint
-    └── form.tsx        # Example edit form
+├── datarc.examples.js   # Example data store manifest
+├── index.js             # Server module entrypoint (js only)
+├── js/index.ts          # Client module entrypoint (ts, tsx, js, jsx)
+├── assets               # Client resources - icons, styles, files, etc
+└── templates            # Static pug templates (client or server)
 ```
 
 ### Install

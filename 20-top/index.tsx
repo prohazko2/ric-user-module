@@ -4,7 +4,7 @@ import { observer } from "mobx-react";
 import { i18n, socket, format, user, safe, since } from "util";
 import { Table, Button, Icon } from "ui";
 
-import { Counter } from "./store";
+import { Counter } from "./counter";
 import styles from "./styles.css";
 
 const counter = new Counter();

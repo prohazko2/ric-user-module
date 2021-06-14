@@ -46,11 +46,13 @@ export default class ExamplesModule extends Module {
     /* 40-inject */
     const objects = await safe.awaitOf("objects");
     if (objects) {
-      objects.addService("ric-action", InjectPage);
+      /* 40-inject: add custom service page to objects module */
+      objects.addService("examples", InjectPage);
+      /* 40-inject: add custom viewport to objects module */
       objects.view.addViewport(new InjectView(this));
     }
 
-    /* select 10-main as default viewport */
+    /* select main as default module viewport */
     this.viewport = this.view.viewports.find(({ name }) => name === "10-main");
   }
 }

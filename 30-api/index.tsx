@@ -29,7 +29,7 @@ function LogLine(line: LogLine) {
   );
 }
 
-function emptyLogLine(): LogLine {
+function emptyLine(): LogLine {
   return { ts: new Date(), ok: null, id: nanoid(10), message: "" };
 }
 
@@ -57,7 +57,7 @@ export default class extends React.Component {
       return;
     }
 
-    const line: LogLine = emptyLogLine();
+    const line = emptyLine();
     this.setState({ sending: true, logs: [...logs, line] });
 
     try {
@@ -82,10 +82,8 @@ export default class extends React.Component {
     return (
       <div className={styles.viewport}>
         <div className={styles.input}>
-          <span className={styles.path}>
-            <span className={styles.verb}>GET</span>
-            /examples/hello/
-          </span>
+          <span className={styles.verb}>GET</span>
+          <span className={styles.path}>/examples/hello/</span>
           <Text
             placeholder="Type here ..."
             value={name}
@@ -103,7 +101,7 @@ export default class extends React.Component {
         )}
 
         <div className={styles.logs}>
-          {!logs.length && <div>Press "Send" to API call</div>}
+          {!logs.length && <div>Press "Send" for API call</div>}
 
           {logs.map((line) => (
             <LogLine {...line} />

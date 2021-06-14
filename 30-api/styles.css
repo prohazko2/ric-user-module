@@ -15,7 +15,7 @@
 
 .input {
   display: grid;
-  grid-template-columns: 130px 1fr;
+  grid-template-columns: 30px 100px 1fr;
 }
 
 .path {
@@ -24,7 +24,8 @@
   align-self: center;
 }
 
-.path .verb {
+.verb {
+  composes: path;
   font-weight: bold;
   margin-right: 7px;
   color: var(--light-olive-green);

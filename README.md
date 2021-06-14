@@ -29,3 +29,9 @@ or with [docker](https://github.com/prohazko2/ric-build-root)
 - use custom [`react-grid-layout`](https://github.com/react-grid-layout/react-grid-layout) library
 - use `module.save` API to persist layout changes (`PATCH /examples/:id`)
 - listen module events (`select` and `staged`)
+
+#### [20-top](./20-top/index.tsx)
+
+- use bundled [`mobx`](https://github.com/mobxjs/mobx) library for state managment
+- listen `WebSocket` events (`object-packet`)
+- use base module for navigation and formating (`objects`)

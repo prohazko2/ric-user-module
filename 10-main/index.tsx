@@ -85,6 +85,9 @@ export default class extends React.Component<{ module: ExamplesModule }> {
   }
 
   render() {
+    if (!this.state.selected) {
+      return <Spinner/>
+    }
     return (
       <div>
         <Toolbar>

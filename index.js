@@ -52,9 +52,9 @@ module.exports = {
 
     /* 04. api: custom page route */
     server.get("/examples/page/:name?", users.get(async (ctx) => {
-      const tpl = `${__dirname}/templates/server-page.jade`;
+      const path = `${__dirname}/templates/server-page.jade`;
       const name = ctx.params.name || "world";
-      ctx.renderTo(tpl, { name });
+      ctx.renderTo(path, { name });
     }));
 
     /* 05. api: default store api */

@@ -37,7 +37,7 @@ or with [docker](https://github.com/prohazko2/ric-build-root)
   - [`GET /examples?only=name`](http://localhost:3000/api/v1/examples?only=name) - query items for only `name` field
   - [`GET /examples?where.value>=20`](http://localhost:3000/api/v1/examples?where.value>=20) - query items where `value` field greater than 20
   - [`GET /examples?unwrap=object`](http://localhost:3000/api/v1/examples?unwind=object) - unref object referenced  by `object` field
-  - [`GET /examples?streamed&limit=2`](http://localhost:3000/api/v1/examples?streamed=true&limit=2) - query first 2 items in steam mode
+  - [`GET /examples?streamed&limit=2`](http://localhost:3000/api/v1/examples?streamed=true&limit=2) - query first 2 items in stream mode
 - `POST /examples` - create new item
 - `PATCH /examples/:id` - update any item
 - `DELETE /examples/:id` - delete any item

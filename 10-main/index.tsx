@@ -36,7 +36,7 @@ export default class extends React.Component<AppProps, AppState> {
   }
 
   render() {
-    const { selected } = this.state;
+    const { selected } = this.state || {};
     if (!selected) {
       return <Spinner />;
     }

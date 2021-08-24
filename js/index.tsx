@@ -2,7 +2,6 @@ import React from "react";
 import ReactDom from "react-dom";
 
 import { Shell, Module, viewport } from "common";
-import { safe } from "util";
 
 import "../assets/styles.global.css";
 import icon from "../assets/icon.svg";
@@ -31,7 +30,7 @@ export default class ExamplesModule extends Module {
     this.viewConfig.gridVersion = "v3";
   }
 
-  addExampleApp(name: string, component: any) {
+  addExampleApp(name: string, component: JSX.Element) {
     const view = this.view.addEmptyViewport(name);
     return ReactDom.render(component, view.getNode());
   }
@@ -43,16 +42,16 @@ export default class ExamplesModule extends Module {
     this.addExampleApp("20-top ", <TopView module={this} />);
     this.addExampleApp("30-api ", <ApiView />);
 
-    /* 40-inject */
-    const objects = await safe.awaitOf("objects");
-    if (objects) {
-      /* 40-inject: add custom service page to objects module */
-      objects.addService("examples", InjectPage);
-      /* 40-inject: add custom viewport to objects module */
-      objects.view.addViewport(new InjectView(this));
-    }
-
     /* select main as default module viewport */
     this.viewport = this.view.viewports.find(({ name }) => name === "10-main");
+
+    /* 40-inject */
+    const dep = await this.waitFor("objects");
+    if (dep) {
+      /* 40-inject: add custom service page to objects module */
+      dep.addService("examples", InjectPage);
+      /* 40-inject: add custom viewport to objects module */
+      dep.view.addViewport(new InjectView(this));
+    }
   }
 }

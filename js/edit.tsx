@@ -5,12 +5,8 @@ import { Form, Field, Text, Numeric, Data, Button, Select } from "ui";
 
 export default ({ item, onChange }) => (
   <Form responsive item={item} key={item._id} onChange={onChange}>
-    <Field name="name" />
-    <Field
-      name="kind"
-      component={<Select values={["foo", "bar"]} />}
-      initWith="foo"
-    />
+    <Field name="name" component={<Text />} />
+    <Field name="kind" component={<Select values={["foo", "bar"]} />} initWith="foo" />
     <Field name="value" component={<Numeric />} initWith={42} />
     <Field name="object" component={<Select store="objects" />} />
     <Field name="description" component={<Text area />} />

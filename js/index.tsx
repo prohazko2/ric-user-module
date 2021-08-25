@@ -46,7 +46,7 @@ export default class ExamplesModule extends Module {
     this.viewport = this.view.viewports.find(({ name }) => name === "10-main");
 
     /* 40-inject */
-    const dep = await this.waitFor("objects");
+    const dep = await this.shell.waitFor("objects");
     if (dep) {
       /* 40-inject: add custom service page to objects module */
       dep.addService("examples", InjectPage);
